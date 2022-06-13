@@ -1,10 +1,10 @@
-<?php $active_navbar=2;include "header.php" ?>
+<?php $active_navbar=2;include "header_iniciado.php" ?>
     
     <div class="container-fluid py-5">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 pb-4 pb-lg-0">
-                    <img class="img-fluid w-100" src="img/camion.gif" alt="">
+                    <img class="img-fluid w-100" src="../img/camion.gif" alt="">
                     <div class="bg-primary text-dark text-center p-4">
                         <h3 class="m-0">Una experiencia en la entrega</h3>
                     </div>
@@ -25,7 +25,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5">
-                    <img class="img-fluid w-100" src="img/camion.gif" alt="">
+                    <img class="img-fluid w-100" src="../img/camion.gif" alt="">
                 </div>
                 <div class="col-lg-7 py-5 py-lg-0">
                     <h6 class="text-primary text-uppercase font-weight-bold">Por qué elegirnos</h6>
@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="team card position-relative overflow-hidden border-0 mb-5">
-                        <img class="card-img-top" src="img/mimo.png" alt="">
+                        <img class="card-img-top" src="../img/mimo.png" alt="">
                         <div class="card-body text-center p-0">
                             <div class="team-text d-flex flex-column justify-content-center bg-secondary">
                                 <h5 class="font-weight-bold">JUAN MANUEL QUIROZ</h5>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="team card position-relative overflow-hidden border-0 mb-5">
-                        <img class="card-img-top" src="img/momi.png" alt="">
+                        <img class="card-img-top" src="../img/momi.png" alt="">
                         <div class="card-body text-center p-0">
                             <div class="team-text d-flex flex-column justify-content-center bg-secondary">
                                 <h5 class="font-weight-bold">ALL RASHIB, MOHAMED</h5>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="team card position-relative overflow-hidden border-0 mb-5">
-                        <img class="card-img-top" src="img/simo.png" alt="">
+                        <img class="card-img-top" src="../img/simo.png" alt="">
                         <div class="card-body text-center p-0">
                             <div class="team-text d-flex flex-column justify-content-center bg-secondary">
                                 <h5 class="font-weight-bold">CHRISTIAN FABRICIO JUAREZ</h5>
@@ -108,5 +108,5 @@
         </div>
     </div>
     
-<?php include "footer.php" ?>
+<?php include "footer_iniciado.php" ?>
 
