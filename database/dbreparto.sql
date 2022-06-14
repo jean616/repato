@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-06-2022 a las 20:21:55
+-- Tiempo de generación: 13-06-2022 a las 18:28:26
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -129,8 +129,18 @@ CREATE TABLE `perfil` (
   `estado_perf` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- 
---------------------------------------------------------
+--
+-- Volcado de datos para la tabla `perfil`
+--
+
+INSERT INTO `perfil` (`id_perf`, `nombre_perf`, `estado_perf`) VALUES
+(1, 'Admin', 1),
+(2, 'Gerente', 1),
+(3, 'Administrador', 1),
+(4, 'Repartidor', 1),
+(5, 'Cliente', 0);
+
+-- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `productos`
@@ -164,8 +174,21 @@ CREATE TABLE `usuarios` (
   `password_usua` varchar(50) NOT NULL,
   `fechaRegistro_usua` datetime NOT NULL,
   `perfil_usua` int(11) NOT NULL,
+  `codigo_usua` int(10) DEFAULT NULL,
   `estado_usua` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usua`, `nombre_usua`, `apellidos_usua`, `dni_usua`, `fechaNacimiento_usua`, `sexo_usua`, `telefono_usua`, `nick_usua`, `password_usua`, `fechaRegistro_usua`, `perfil_usua`, `codigo_usua`, `estado_usua`) VALUES
+(1, 'admin', 'admin', 12345678, '2022-06-07', 'M', 987654321, 'admin', 'admin123', '2022-06-07 18:00:11', 1, NULL, 1),
+(2, 'Cliente', 'clinete0', 46281357, '1999-12-10', 'F', 987654321, 'cliente@cliente.com', 'cliente123', '2022-06-09 15:40:15', 5, NULL, 1),
+(4, 'Jahir', 'Calderon Sobrado', NULL, '2002-01-11', 'M', 948621733, 'jahirjaguar_10@hotmail.com', '123456', '2022-06-12 18:34:22', 5, NULL, 1),
+(5, 'Jairo', 'Morales', NULL, '2001-07-26', 'M', 945273800, 'jairo@morales.com', '147852', '2022-06-12 19:02:44', 5, NULL, 1),
+(6, 'Franck', 'Robles', NULL, '2000-03-03', 'M', 948336812, 'franck@robles.com', '12369874', '2022-06-12 19:30:16', 5, NULL, 1),
+(8, 'Jhosny', 'Calderon Sobrado', NULL, '1997-05-09', 'M', 962620038, 'jhosny@calderon.com', 'jhosny1234', '2022-06-12 19:48:58', 5, NULL, 1);
 
 --
 -- Índices para tablas volcadas
@@ -238,6 +261,7 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usua`),
+  ADD UNIQUE KEY `nick_usua` (`nick_usua`),
   ADD UNIQUE KEY `dni_usua` (`dni_usua`),
   ADD KEY `fk_1` (`perfil_usua`);
 
@@ -285,7 +309,7 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `perfil`
 --
 ALTER TABLE `perfil`
-  MODIFY `id_perf` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_perf` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -297,7 +321,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usua` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usua` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
