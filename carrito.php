@@ -44,12 +44,42 @@ include("header.php");
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>Imagen</th>
+                    <th>Id</th>
                     <th>Producto</th>
                     <th >Precio</th>
                     <th>Cantidad</th>
                     <th>Total</th>
-                    <th></th>
+                  </tr>
+                  <tr>
+                    <?php  
+                      include 'conexiondb.php';
+                      $sql = "SELECT * FROM  productos";
+                      $datos  = $db->query($sql);//
+                      
+                      //var_dump($datos);
+                      foreach($datos as $product)
+                      {
+                        echo "<tr>";
+                        echo "<td>". $product['id_prod'].'</td>';
+                        echo "<td>". $product['nombre_prod'] . '</td>';
+                        echo "<td>". $product['precioUnidad_prod'] . '</td>';
+                        echo "<td>"."<form method='post'><input type='text' name='numcant' required><input type='submit'
+                        value='calcular total' class='btn btn-success'></form>";
+                       
+                      echo "<td>";
+                      if($_POST){
+                        
+                        $valor = $product['precioUnidad_prod'];
+                        $cant = $_POST["numcant"];
+                        $total= $valor * $cant;                       
+                                }
+                        
+                        echo $total;
+                              }
+                              
+                          
+                      echo "</tr>";                 
+                      ?>
                   </tr>
                 </thead>
                 <tbody>
