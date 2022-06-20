@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-06-2022 a las 19:48:19
+-- Tiempo de generación: 06-06-2022 a las 20:21:55
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -45,13 +45,6 @@ CREATE TABLE `categoria_productos` (
   `descripccion_categoria_productos` text DEFAULT NULL,
   `estado_categoria_productos` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `categoria_productos`
---
-
-INSERT INTO `categoria_productos` (`id_categoria_productos`, `nombre_categoria_productos`, `descripccion_categoria_productos`, `estado_categoria_productos`) VALUES
-(1, 'Comidas', 'el menu que se ofrece', 1);
 
 -- --------------------------------------------------------
 
@@ -136,18 +129,8 @@ CREATE TABLE `perfil` (
   `estado_perf` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `perfil`
---
-
-INSERT INTO `perfil` (`id_perf`, `nombre_perf`, `estado_perf`) VALUES
-(1, 'Admin', 1),
-(2, 'Gerente', 1),
-(3, 'Administrador', 1),
-(4, 'Repartidor', 1),
-(5, 'Cliente', 0);
-
--- --------------------------------------------------------
+-- 
+--------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `productos`
@@ -156,26 +139,12 @@ INSERT INTO `perfil` (`id_perf`, `nombre_perf`, `estado_perf`) VALUES
 CREATE TABLE `productos` (
   `id_prod` int(11) NOT NULL,
   `nombre_prod` varchar(150) NOT NULL,
-  `descripcion_prod` varchar(100) DEFAULT NULL,
   `precioUnidad_prod` decimal(10,2) NOT NULL,
   `stock_prod` int(11) DEFAULT NULL,
   `foto_prod` varchar(150) NOT NULL,
   `categoria_prod` int(11) NOT NULL,
   `estado_prod` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `productos`
---
-
-INSERT INTO `productos` (`id_prod`, `nombre_prod`, `descripcion_prod`, `precioUnidad_prod`, `stock_prod`, `foto_prod`, `categoria_prod`, `estado_prod`) VALUES
-(1, 'Especial Trujillano', 'Un plato tipico de Trujillo-Perú XD :p', '20.00', 10, 'a.jpg', 1, 1),
-(2, 'Especial Fit', 'Un plato especial para los que quieran comer saludable.', '25.00', NULL, 'b.jpg', 1, 1),
-(3, 'Tacos Mexicanos', 'Un plato tipico de Mexico', '18.50', NULL, 'c.jpg', 1, 1),
-(4, 'Sushi', 'Un plato tipico de Japon.', '23.00', NULL, 'd.jpg', 1, 1),
-(5, 'Ratatouille', 'Un plato tipico de Francia.', '30.00', NULL, 'e.jpg', 1, 1),
-(6, 'Arroz Tapado', 'Un plato tipico de Perú xD', '29.90', NULL, 'f.jpg', 1, 1),
-(7, 'Causa Rellena', 'Un plato tipico de Perú.', '22.00', NULL, 'g.jpg', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -190,31 +159,13 @@ CREATE TABLE `usuarios` (
   `dni_usua` int(8) DEFAULT NULL,
   `fechaNacimiento_usua` date NOT NULL,
   `sexo_usua` char(1) DEFAULT NULL,
-  `telefono_usua` int(9) DEFAULT NULL,
-  `nick_usua` varchar(30) DEFAULT 'unique',
-  `password_usua` varchar(50) DEFAULT NULL,
-  `fechaRegistro_usua` datetime DEFAULT NULL,
-  `perfil_usua` int(11) DEFAULT NULL,
-  `codigo_usua` int(10) DEFAULT NULL,
-  `estado_usua` int(1) DEFAULT NULL
+  `telefono_usua` int(9) NOT NULL,
+  `nick_usua` varchar(30) NOT NULL,
+  `password_usua` varchar(50) NOT NULL,
+  `fechaRegistro_usua` datetime NOT NULL,
+  `perfil_usua` int(11) NOT NULL,
+  `estado_usua` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`id_usua`, `nombre_usua`, `apellidos_usua`, `dni_usua`, `fechaNacimiento_usua`, `sexo_usua`, `telefono_usua`, `nick_usua`, `password_usua`, `fechaRegistro_usua`, `perfil_usua`, `codigo_usua`, `estado_usua`) VALUES
-(1, 'admin', 'admin', 12345678, '2022-06-07', 'M', 987654321, 'admin', 'admin123', '2022-06-07 18:00:11', 1, NULL, 1),
-(2, 'Cliente', 'clinete0', 46281357, '1999-12-10', 'F', 987654321, 'cliente@cliente.com', 'cliente123', '2022-06-09 15:40:15', 5, NULL, 1),
-(4, 'Jahir', 'Calderon Sobrado', 72125698, '2002-01-11', 'M', 948621733, 'jahirjaguar_10@hotmail.com', '123456', '2022-06-12 18:34:22', 2, 123, 1),
-(5, 'Jairo', 'Morales', NULL, '2001-07-26', 'M', 945273800, 'jairo@morales.com', '147852', '2022-06-12 19:02:44', 5, NULL, 1),
-(6, 'Franck', 'Robles', NULL, '2000-03-03', 'M', 948336812, 'franck@robles.com', '12369874', '2022-06-12 19:30:16', 5, NULL, 1),
-(8, 'Jhosny', 'Calderon Sobrado', NULL, '1997-05-09', 'M', 962620038, 'jhosny@calderon.com', 'jhosny1234', '2022-06-12 19:48:58', 4, NULL, 1),
-(9, 'aea aea', 'aea aea', 56464656, '2000-12-15', 'F', 948521763, 'aea@aea.com', 'aea123', '2022-06-13 19:45:51', 3, NULL, 0),
-(10, 'Joryeth', 'Calderon Sobrado', NULL, '2003-07-07', '', 937182654, 'joryeth@calderon.com', '1234', '2022-06-14 15:09:53', 5, NULL, 0),
-(12, 'peru', 'peru f', NULL, '1999-05-11', '', 925631785, 'peru@peru.com', 'peru123', '2022-06-14 15:25:47', 5, NULL, 0),
-(13, 'soy ', 'cliente', 48929846, '1995-06-15', '', 923578535, 'soy@cliente.com', 'soycliente123', '2022-06-14 22:42:55', 5, NULL, 0),
-(14, 'cliente', 'numero 3', 61484665, '1985-09-18', 'M', 958621478, 'cliente@numero3.com', 'cliente123', '2022-06-14 23:15:27', 5, NULL, 0);
 
 --
 -- Índices para tablas volcadas
@@ -287,7 +238,6 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usua`),
-  ADD UNIQUE KEY `nick_usua` (`nick_usua`),
   ADD UNIQUE KEY `dni_usua` (`dni_usua`),
   ADD KEY `fk_1` (`perfil_usua`);
 
@@ -305,7 +255,7 @@ ALTER TABLE `accion_pedidos`
 -- AUTO_INCREMENT de la tabla `categoria_productos`
 --
 ALTER TABLE `categoria_productos`
-  MODIFY `id_categoria_productos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_categoria_productos` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
@@ -335,19 +285,19 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `perfil`
 --
 ALTER TABLE `perfil`
-  MODIFY `id_perf` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_perf` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usua` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_usua` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

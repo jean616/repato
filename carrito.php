@@ -65,7 +65,6 @@ include("header.php");
                         echo "<td>". $product['precioUnidad_prod'] . '</td>';
                         echo "<td>"."<form method='post'><input type='text' name='numcant' required><input type='submit'
                         value='calcular total' class='btn btn-success'></form>";
-                       
                       echo "<td>";
                       if($_POST){
                         

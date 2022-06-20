@@ -30,7 +30,7 @@
             <tbody>
                 <?php
                     $sql = "SELECT * FROM pedidos";
-                    $datos = $conn->query($sql);
+                    $datos = $db->query($sql);
                     foreach($datos as $pedidos)
                     {
                         echo "<tr>";
